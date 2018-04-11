@@ -10,7 +10,7 @@ MAINTAINER Tobias Neumann <tobias.neumann.at@gmail.com>
 
 ARG VERSION_ARG
 
-ENV PATH="cd circos-0.69-6/bin:${PATH}"
+ENV PATH="/circos-0.69-6/bin:${PATH}"
 
 # binutils is required to run opencl programs
 RUN buildDeps='git wget gcc g++ libc6-dev make zlib1g-dev libncurses-dev perl curl ca-certificates cpanminus libgd-gd2-perl' \
