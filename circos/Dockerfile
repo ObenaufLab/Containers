@@ -18,6 +18,5 @@ RUN buildDeps='git wget gcc g++ libc6-dev make zlib1g-dev libncurses-dev perl cu
     && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && cpanm Clone Config::General Font::TTF::Font Math::Bezier Math::Round Math::VecStat Params::Validate Readonly Regexp::Common SVG Set::IntSpan Statistics::Basic Text::Format List::MoreUtils \
-    && cd $HOME \
     && wget http://circos.ca/distribution/circos-0.69-6.tgz \
     && tar xvfz circos-0.69-6.tgz
