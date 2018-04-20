@@ -13,7 +13,7 @@ ARG VERSION_ARG
 ENV PATH="/circos-0.69-6/bin:${PATH}"
 
 # binutils is required to run opencl programs
-RUN buildDeps='git wget gcc g++ libc6-dev make zlib1g-dev libncurses-dev perl curl ca-certificates cpanminus libgd-gd2-perl' \
+RUN buildDeps='git wget gcc g++ libc6-dev make zlib1g-dev libncurses-dev perl curl ca-certificates cpanminus libgd-gd2-perl python bedtools' \
     && set -x \
     && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
