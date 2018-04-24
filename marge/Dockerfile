@@ -10,6 +10,7 @@ MAINTAINER Tobias Neumann <tobias.neumann.at@gmail.com>
 
 ARG VERSION_ARG
 
+
 RUN runDeps='gcc g++ libc6-dev make zlib1g-dev python libhdf5-serial-dev python-h5py python-pip python-dev git python-tables' \
     buildDeps='unzip wget' \
     && set -x \
@@ -18,7 +19,7 @@ RUN runDeps='gcc g++ libc6-dev make zlib1g-dev python libhdf5-serial-dev python-
     && pip install sklearn tables twobitreader  \
     && pip install MACS2 \
     && (cd /usr/local/bin ; wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedClip ; chmod ug+x bedClip) \
-    && (cd /usr/local/bin ; wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bigWigToBedGraph ; chmod ug+x bigWigToBedGraph) \
+    && (cd /usr/local/bin ; wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bedGraphToBigWig ; chmod ug+x bedGraphToBigWig) \
     && (cd /usr/local/bin ; wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bigWigSummary ; chmod ug+x bigWigSummary) \
     && (cd /usr/local/bin ; wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/bigWigAverageOverBed ; chmod ug+x bigWigAverageOverBed) \
     && wget http://cistrome.org/MARGE/src/Py2_MARGE.zip \
