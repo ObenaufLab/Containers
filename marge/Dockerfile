@@ -33,6 +33,7 @@ RUN runDeps='gcc g++ libc6-dev make zlib1g-dev python libhdf5-serial-dev python-
     && sed -i 's/sample1 sample2 sample3 sample4//g' /usr/local/lib/python2.7/dist-packages/marge-1.0-py2.7.egg/marge/config.json \
     && sed -i 's/\[Gene_Only|Gene_Response\]/Gene_Only/g' /usr/local/lib/python2.7/dist-packages/marge-1.0-py2.7.egg/marge/config.json \
     && sed -i 's/\[GeneSymbol|RefSeq\]/GeneSymbol/g' /usr/local/lib/python2.7/dist-packages/marge-1.0-py2.7.egg/marge/config.json \
+    && sed -i 's/\/usr\/local\/bin\/marge/\/usr\/local\/lib\/python2.7\/dist-packages\/marge-1.0-py2.7.egg\/marge/g' /usr/local/lib/python2.7/dist-packages/marge-1.0-py2.7.egg/marge/config.json \
     && apt-get install -y python3 python3-pip python3-dev --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
     && pip3 install setuptools wheel \
