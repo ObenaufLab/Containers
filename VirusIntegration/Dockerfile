@@ -10,11 +10,16 @@ MAINTAINER Tobias Neumann <tobias.neumann.at@gmail.com>
 ENV PATH="/centrifuge-1.0.4-beta/ncbi-blast-2.7.1+/bin/:${PATH}"
 
 # binutils is required to run opencl programs
-RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates' \
-    runDeps='unzip libidn11' \
+RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev' \
+    runDeps='unzip libidn11 bedtools' \
     && set -x \
     && apt-get update && apt-get install -y $buildDeps $runDeps --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
+    && wget https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2 \
+    && tar xjvf samtools-1.3.1.tar.bz2 \
+    && cd samtools-1.3.1 \
+    && make \
+    && make install \
     && wget https://github.com/infphilo/centrifuge/archive/v1.0.4-beta.tar.gz \
     && tar xvfz v1.0.4-beta.tar.gz \
     && cd centrifuge-1.0.4-beta \
