@@ -7,7 +7,7 @@ FROM ubuntu:18.04
 
 MAINTAINER Tobias Neumann <tobias.neumann.at@gmail.com>
 
-ENV PATH="/centrifuge-1.0.4-beta/ncbi-blast-2.7.1+/bin/:${PATH}"
+ENV PATH="/samtools-1.3.1/centrifuge-1.0.4-beta/bwa-0.7.17/:/centrifuge-1.0.4-beta/ncbi-blast-2.7.1+/bin/:${PATH}"
 
 # binutils is required to run opencl programs
 RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev' \
@@ -27,4 +27,8 @@ RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev'
     && tar xvfz ncbi-blast-2.7.1+-x64-linux.tar.gz \
     && make \
     && make install prefix=/usr/local \
+    && wget https://github.com/lh3/bwa/releases/download/v0.7.17/bwa-0.7.17.tar.bz2 \
+    && tar xjvf bwa-0.7.17.tar.bz2 \
+    && cd bwa-0.7.17 \
+    && make \
     && apt-get purge -y --auto-remove $buildDeps
