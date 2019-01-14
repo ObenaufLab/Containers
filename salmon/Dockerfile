@@ -7,8 +7,8 @@ FROM combinelab/salmon:0.12.0
 
 MAINTAINER Tobias Neumann <tobias.neumann.at@gmail.com>
 
-RUN buildDeps='wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev' \
-    runDeps='unzip' \
+RUN buildDeps='wget ca-certificates make g++' \
+    runDeps='zlib1g-dev libncurses5-dev unzip gcc' \
     && set -x \
     && apt-get install -y $buildDeps $runDeps --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
