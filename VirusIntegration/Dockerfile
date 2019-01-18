@@ -7,7 +7,7 @@ FROM ubuntu:18.04
 
 MAINTAINER Tobias Neumann <tobias.neumann.at@gmail.com>
 
-ENV PATH="/samtools-1.3.1/centrifuge-1.0.4-beta/bwa-0.7.17/:/centrifuge-1.0.4-beta/ncbi-blast-2.7.1+/bin/:${PATH}"
+ENV PATH="/samtools-1.3.1/centrifuge-1.0.4-beta/bwa-0.7.17/:/centrifuge-1.0.4-beta/ncbi-blast-2.7.1+/bin/:/seqtk-1.3/:${PATH}"
 
 # binutils is required to run opencl programs
 RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev' \
@@ -30,5 +30,10 @@ RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev'
     && wget https://github.com/lh3/bwa/releases/download/v0.7.17/bwa-0.7.17.tar.bz2 \
     && tar xjvf bwa-0.7.17.tar.bz2 \
     && cd bwa-0.7.17 \
+    && make \
+    && cd / \
+    && wget https://github.com/lh3/seqtk/archive/v1.3.tar.gz \
+    && tar xvfz v1.3.tar.gz \
+    && cd seqtk-1.3 \
     && make \
     && apt-get purge -y --auto-remove $buildDeps
