@@ -23,7 +23,7 @@ RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev'
     && wget https://github.com/infphilo/centrifuge/archive/v1.0.4-beta.tar.gz \
     && tar xvfz v1.0.4-beta.tar.gz \
     && cd centrifuge-1.0.4-beta \
-    && wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.7.1+-x64-linux.tar.gz \
+    && wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.7.1/ncbi-blast-2.7.1+-x64-linux.tar.gz \
     && tar xvfz ncbi-blast-2.7.1+-x64-linux.tar.gz \
     && make \
     && make install prefix=/usr/local \
