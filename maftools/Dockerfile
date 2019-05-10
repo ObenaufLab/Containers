@@ -15,7 +15,7 @@ RUN buildDeps='libbz2-dev liblzma-dev' \
     && set -x \
     && apt-get update && apt-get install -y $buildDeps --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
-    && Rscript -e 'install.packages("mclust", repos="https://cran.wu.ac.at/")' \
+    && Rscript -e 'install.packages(c("mclust","pheatmap"), repos="https://cran.wu.ac.at/")' \
        -e 'install.packages("BiocManager")' \
        -e 'BiocManager::install("maftools",update = FALSE)' \
        -e 'BiocManager::install("BSgenome.Hsapiens.UCSC.hg38",update = FALSE)' 
