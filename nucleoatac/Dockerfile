@@ -11,7 +11,7 @@ RUN set -x \
 	&& conda config --add channels defaults \
 	&& conda config --add channels bioconda \
 	&& conda config --add channels conda-forge \
-	&& conda create --prefix /usr/local/nucleoatac -y nucleoatac=0.3.4 \
+	&& conda create --prefix /nucleoatac -y nucleoatac=0.3.4 \
 	&& conda clean -a
 
-ENV PATH /usr/local/nucleoatac/bin:$PATH
+ENV PATH /nucleoatac/bin:$PATH
