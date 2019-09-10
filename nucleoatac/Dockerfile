@@ -1,0 +1,17 @@
+# Copyright (c) 2019 Tobias Neumann.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+FROM continuumio/miniconda:4.7.10
+
+MAINTAINER Tobias Neumann <tobias.neumann.at@gmail.com>
+
+RUN set -x \
+	&& conda config --add channels defaults \
+	&& conda config --add channels bioconda \
+	&& conda config --add channels conda-forge \
+	&& conda create -y --name nucleoatac nucleoatac=0.3.4 \
+	&& conda clean -a
+
+ENV PATH /opt/conda/envs/nucleoatac/bin:$PATH
