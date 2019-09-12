@@ -15,3 +15,4 @@ RUN set -x \
 	&& conda clean -a
 
 ENV PATH /nucleoatac/bin:$PATH
+ENV PYTHONNOUSERSITE 1
