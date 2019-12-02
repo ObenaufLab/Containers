@@ -33,5 +33,7 @@ RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev 
     && wget https://faculty.washington.edu/browning/beagle/beagle.09Nov15.d2a.jar \
     && pip install setuptools \
     && pip install wheel \
-    && pip install setuptools pysam==0.8.4 pybedtools PyVCF==0.6.7 pathos pandas markerlib \
+    && pip install markerlib \
+    && pip install distribute \
+    && pip install pysam==0.8.4 pybedtools PyVCF==0.6.7 pathos pandas \
     && git clone https://github.com/pughlab/bamgineer.git
