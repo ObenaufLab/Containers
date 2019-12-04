@@ -31,6 +31,9 @@ RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev 
     && tar xjf sambamba_v0.5.4_linux.tar.bz2 \
     && chmod ugo+x sambamba_v0.5.4 \
     && wget https://faculty.washington.edu/browning/beagle/beagle.09Nov15.d2a.jar \
+    && chmod ugo+x beagle.09Nov15.d2a.jar \
+    && wget https://github.com/broadinstitute/picard/releases/download/2.21.4/picard.jar \
+    && chmod ugo+x picard.jar \
     && pip install setuptools \
     && pip install wheel \
     && pip install markerlib \
