@@ -10,7 +10,7 @@ MAINTAINER Tobias Neumann <tobias.neumann.at@gmail.com>
 ENV PATH=$PATH:/samtools-1.2/:/bamgineer/src/
 
 RUN buildDeps='git wget gcc g++ make zlib1g-dev ca-certificates libncurses5-dev python-dev' \
-    runDeps='unzip libidn11 bedtools vcftools python-pip python openjdk-8-jre' \
+    runDeps='unzip libidn11 bedtools vcftools python-pip python openjdk-8-jre less' \
     && set -x \
     && apt-get update && apt-get install -y $buildDeps $runDeps --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
